@@ -73,4 +73,4 @@ function israelit_customize_register( $wp_customize )
     ) ) );
     
 }
-add_action('customize_register', 'israelit_customize_register');
+add_action( 'customize_register', 'israelit_customize_register' );
