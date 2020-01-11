@@ -12,7 +12,6 @@ function israelit_customize_register( $wp_customize )
         'priority' => 20,
     ) );
 
-
     $wp_customize->add_setting( 'site_copyright', array(
         'default' => '',
         'sanitize_callback' => 'wp_kses'
@@ -34,7 +33,6 @@ function israelit_customize_register( $wp_customize )
         'section' => 'title_tagline',
         'settings' => 'site_logo',
     ) ) );
-
 
     $wp_customize->add_setting( 'email', array(
         'sanitize_callback' => 'sanitize_email',
