@@ -1,5 +1,4 @@
-	</main><!-- #site-main -->
-
+    </main><!-- #site-main -->
 
     <footer class="site-footer" role="contentinfo">
         <div class="container">
