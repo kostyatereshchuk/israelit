@@ -35,7 +35,7 @@
                 ?>
             </div>
         </nav>
-	</header>
+    </header>
 
     <main class="site-main" role="main">
 
