@@ -4,23 +4,23 @@
  * Setup theme features.
  */
 function israelit_theme_support() {
-	load_theme_textdomain( 'israelit', get_template_directory() . '/languages' );
+    load_theme_textdomain( 'israelit', get_template_directory() . '/languages' );
 
-	add_theme_support( 'automatic-feed-links' );
+    add_theme_support( 'automatic-feed-links' );
 
-	add_theme_support( 'title-tag' );
+    add_theme_support( 'title-tag' );
 
-	add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails' );
 
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'israelit' ),
-	) );
+    register_nav_menus( array(
+        'primary' => esc_html__( 'Primary', 'israelit' ),
+    ) );
 
-	add_theme_support( 'html5', array(
-		'comment-form',
-		'comment-list',
-		'caption',
-	) );
+    add_theme_support( 'html5', array(
+        'comment-form',
+        'comment-list',
+        'caption',
+    ) );
 }
 add_action( 'after_setup_theme', 'israelit_theme_support' );
 
