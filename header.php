@@ -10,7 +10,7 @@
 
 <body <?php body_class(); ?>>
 
-	<header class="site-header" role="banner">
+    <header class="site-header" role="banner">
         <nav class="container">
             <a class="site-logo brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo get_bloginfo( 'name' ); ?>">
                 <?php if ( $site_logo = get_theme_mod( 'site_logo' ) ): ?>
