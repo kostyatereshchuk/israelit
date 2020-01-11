@@ -71,5 +71,6 @@ function israelit_customize_register( $wp_customize )
         'section' => 'contacts',
         'settings' => 'linkedin_url',
     ) ) );
+    
 }
 add_action('customize_register', 'israelit_customize_register');
