@@ -7,38 +7,38 @@ if ( ! function_exists( 'israelit_comment' ) ) {
 
     function israelit_comment( $comment, $args, $depth ) {
 
-        if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
+        if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
 
         <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media'); ?>>
             <div class="comment-body">
-                <?php _e('Pingback:', 'israelit'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'israelit'), '<span class="edit-link">', '</span>'); ?>
+                <?php _e( 'Pingback:', 'israelit'); ?><?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'israelit' ), '<span class="edit-link">', '</span>' ); ?>
             </div>
 
         <?php else : ?>
 
-        <li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
+        <li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
             <article id="div-comment-<?php comment_ID(); ?>" class="comment-body media mb-4">
                 <a class="pull-left" href="#">
-                    <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size']); ?>
+                    <?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
                 </a>
 
                 <div class="media-body">
                     <div class="media-body-wrap card">
 
                         <div class="card-header">
-                            <h5 class="mt-0"><?php printf(__('%s <span class="says">says:</span>', 'israelit'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link())); ?></h5>
+                            <h5 class="mt-0"><?php printf( __( '%s <span class="says">says:</span>', 'israelit' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></h5>
                             <div class="comment-meta">
                                 <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>">
                                     <time datetime="<?php comment_time('c'); ?>">
                                         <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'israelit'), get_comment_date(), get_comment_time()); ?>
                                     </time>
                                 </a>
-                                <?php edit_comment_link(__('<span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span> Edit', 'israelit'), '<span class="edit-link">', '</span>'); ?>
+                                <?php edit_comment_link( __( '<span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span> Edit', 'israelit' ), '<span class="edit-link">', '</span>' ); ?>
                             </div>
                         </div>
 
                         <?php if ( '0' == $comment->comment_approved ) : ?>
-                            <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'israelit'); ?></p>
+                            <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'israelit' ); ?></p>
                         <?php endif; ?>
 
                         <div class="comment-content card-block">
@@ -85,8 +85,8 @@ if ( ! function_exists( 'israelit_comment' ) ) {
 				);
             } else {
                 printf(
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $underscore_comment_count, 'comments title', 'israelit' ) ),
-					esc_html( number_format_i18n( $underscore_comment_count ) ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comments_number, 'comments title', 'israelit' ) ),
+					esc_html( number_format_i18n( $comments_number ) ),
 					'<span>' . esc_html( get_the_title() ) . '</span>'
 				);
             }

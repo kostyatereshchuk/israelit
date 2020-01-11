@@ -6,16 +6,16 @@ get_header(); ?>
             <section class="site-content col-lg-8">
 
                 <?php
-                if (have_posts()) : ?>
+                if ( have_posts() ) : ?>
 
                     <header class="page-header">
-                        <h1 class="page-title"><?php printf(esc_html__('Search Results for: %s', 'israelit'), '<span>' . get_search_query() . '</span>'); ?></h1>
+                        <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'israelit' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
                     </header>
 
                     <?php
-                    while (have_posts()) : the_post();
+                    while ( have_posts() ) : the_post();
 
-                        get_template_part('template-parts/content', 'search');
+                        get_template_part( 'template-parts/content', 'search' );
 
                     endwhile;
 
@@ -23,7 +23,7 @@ get_header(); ?>
 
                 else :
 
-                    get_template_part('template-parts/content', 'none');
+                    get_template_part( 'template-parts/content', 'none' );
 
                 endif; ?>
 

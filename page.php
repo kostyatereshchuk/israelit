@@ -6,11 +6,11 @@ get_header(); ?>
             <section class="site-content col-lg-8">
 
                 <?php
-                while (have_posts()) : the_post();
+                while ( have_posts() ) : the_post();
 
-                    get_template_part('template-parts/content', 'page');
+                    get_template_part( 'template-parts/content', 'page' );
 
-                    if (comments_open() || get_comments_number()) :
+                    if ( comments_open() || get_comments_number() ) :
                         comments_template();
                     endif;
 
