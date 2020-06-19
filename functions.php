@@ -90,6 +90,16 @@ function israelit_disable_emojis() {
 add_action( 'init', 'israelit_disable_emojis' );
 
 /**
+ * Disables extra scripts and styles.
+ */
+function israelit_disable_assets() {
+    wp_deregister_style('wp-block-library' );
+
+    wp_deregister_script('wp-embed' );
+}
+add_action( 'wp_enqueue_scripts', 'israelit_disable_assets', 1000000 );
+
+/**
  * WooCommerce support.
  */
 function israelit_woocommerce_support() {
