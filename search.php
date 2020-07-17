@@ -2,35 +2,31 @@
 get_header(); ?>
 
     <div class="container">
-        <div class="row">
-            <section class="site-content col-lg-8">
+        <section class="site-content">
+
+            <?php
+            if ( have_posts() ) : ?>
+
+                <header class="page-header">
+                    <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'israelit' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                </header>
 
                 <?php
-                if ( have_posts() ) : ?>
+                while ( have_posts() ) : the_post();
 
-                    <header class="page-header">
-                        <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'israelit' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-                    </header>
+                    get_template_part( 'template-parts/content', 'search' );
 
-                    <?php
-                    while ( have_posts() ) : the_post();
+                endwhile;
 
-                        get_template_part( 'template-parts/content', 'search' );
+                the_posts_navigation();
 
-                    endwhile;
+            else :
 
-                    the_posts_navigation();
+                get_template_part( 'template-parts/content', 'none' );
 
-                else :
+            endif; ?>
 
-                    get_template_part( 'template-parts/content', 'none' );
-
-                endif; ?>
-
-            </section>
-
-            <?php get_sidebar(); ?>
-        </div>
+        </section>
     </div>
 
 <?php

@@ -10,38 +10,34 @@
 get_header(); ?>
 
     <div class="container">
-        <div class="row">
-            <section class="site-content col-lg-8">
+        <section class="site-content">
+
+            <?php
+            if (have_posts()) : ?>
+
+                <header class="page-header">
+                    <?php
+                    the_archive_title( '<h1 class="page-title">', '</h1>' );
+                    the_archive_description(' <div class="archive-description">', '</div>' );
+                    ?>
+                </header>
 
                 <?php
-                if (have_posts()) : ?>
+                while ( have_posts() ) : the_post();
 
-                    <header class="page-header">
-                        <?php
-                        the_archive_title( '<h1 class="page-title">', '</h1>' );
-                        the_archive_description(' <div class="archive-description">', '</div>' );
-                        ?>
-                    </header>
+                    get_template_part( 'template-parts/content', get_post_format() );
 
-                    <?php
-                    while ( have_posts() ) : the_post();
+                endwhile;
 
-                        get_template_part( 'template-parts/content', get_post_format() );
+                the_posts_navigation();
 
-                    endwhile;
+            else :
 
-                    the_posts_navigation();
+                get_template_part( 'template-parts/content', 'none' );
 
-                else :
+            endif; ?>
 
-                    get_template_part( 'template-parts/content', 'none' );
-
-                endif; ?>
-
-            </section>
-
-            <?php get_sidebar(); ?>
-        </div>
+        </section>
     </div>
 
 <?php

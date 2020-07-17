@@ -2,15 +2,11 @@
 get_header(); ?>
 
     <div class="container">
-        <div class="row">
-            <section class="site-content col-lg-8">
+        <section class="site-content">
 
-                <?php woocommerce_content(); ?>
+            <?php woocommerce_content(); ?>
 
-            </section>
-
-            <?php get_sidebar(); ?>
-        </div>
+        </section>
     </div>
 
 <?php
